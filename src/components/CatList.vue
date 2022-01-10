@@ -48,8 +48,8 @@ body{
 }
 
 .catPicture {
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
   margin: 10px;
   border: 1px solid gold;
 }
