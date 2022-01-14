@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav class="nav">
-      <router-link class="link" exact to="/header">Главная Страница</router-link>
+      <router-link class="link"  to="/">Главная Страница</router-link>
       <router-link exact to="/cat-list">Лента котов</router-link>
     </nav>
     <router-view/>
@@ -38,11 +38,3 @@ export default {
   color: #DDA0DD;
 }
 </style>
-
-
-<!--<div id="nav">-->
-<!--<front-page/>-->
-<!--<router-link to="/">Welcome page</router-link> |-->
-<!--<router-link to="/cat-list">About</router-link>-->
-<!--</div>-->
-<!--&lt;!&ndash;    <router-view/>&ndash;&gt;-->

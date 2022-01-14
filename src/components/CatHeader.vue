@@ -2,7 +2,7 @@
   <div>
     <header class="header">
       <h1>cat-instagram</h1>
-      <img  style="height: 140px; width: 140px; margin-left: 10px;" src='../assets/BigCat.png' alt="cat-icon">
+      <img src='../assets/BigCat.png' alt="cat-icon">
     </header>
   </div>
 </template>
@@ -18,7 +18,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 h1 {
   color: #DDA0DD;
@@ -29,5 +28,9 @@ h1 {
   margin: 30px 0px ;
   text-transform: uppercase;
 }
-
+img{
+  height: 140px;
+  width: 140px;
+  margin-left: 10px;
+}
 </style>
