@@ -1,10 +1,12 @@
 <template>
   <div id="app">
-    <nav class="nav">
-      <router-link class="link"  to="/">Главная Страница</router-link>
-      <router-link exact to="/cat-list">Лента котов</router-link>
-    </nav>
-    <router-view/>
+    <div class="wrapper">
+      <nav class="nav">
+        <router-link class="link"  to="/">Главная Страница</router-link>
+        <router-link exact to="/cat-list">Лента котов</router-link>
+      </nav>
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -13,7 +15,7 @@ export default {
 }
 </script>
 <style>
-#app {
+.wrapper {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

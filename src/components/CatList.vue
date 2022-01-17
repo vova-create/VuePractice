@@ -1,15 +1,20 @@
 <template>
   <div class="allWrapper">
     <div class="wrapper">
-      <div class="catItems" v-for="(item, index) in cats" :key="index">
-        <div>
+      <div class="catItems" v-for="(item, index) in allCats" :key="index">
+        <div class="catCart">
+          <div class="heart">
+            <img v-show="item.likes" src="../assets/heart.png" alt="heart">
+          </div>
           <h2 v-text="item.name"></h2>
-          <img class="catPicture" :src="item.url" alt="cat">
+          <img @click="item.likes = !item.likes" class="catPicture" :src="item.url" alt="cat">
+          <h3>
+            {{item.likes ? 'you liked this cat': 'not liked'}}
+          </h3>
         </div>
       </div>
     </div>
-    <h2 v-text="text"></h2>
-    <button id="button" @click="showMoreCats">
+    <button id="button" @click="this.showMoreCats">
       <img src="../assets/CatPaw.png" alt="cat-image-paw"></button>
     <br>
     <label for="button">Еще котиков</label>
@@ -17,35 +22,27 @@
 </template>
 
 <script>
-import {CatService} from "@/components/apiFunction";
+import {mapGetters, mapActions} from 'vuex'
 export default {
   name: "CatList",
-
-  data() {
-    return {
-      cats: [],
-      text:'Нажмите на кнопку чтобы увидеть больше котиков',
-      page: 1,
-      fImage: [],
-      service: null
-    }
-  },
- async mounted() {
-      this.service = new CatService();
-      const data = await this.service.getImages();
-      this.cats = data;
+  computed: mapGetters(['allCats','page']),
+  async mounted() {
+   await this.getCats();
   },
   methods:{
- async showMoreCats() {
-  this.text = ''
-  this.page += 1
-  const data = await this.service.getImages(this.page);
-  this.cats = [...this.cats, ...data];
-},
+    ...mapActions(['getCats','showMoreCats'])
   }
 }
 </script>
 <style scoped>
+
+.heart {
+  position: relative;
+  top: 90px;
+  left: 165px;
+  height: 30px;
+  width: 30px;
+}
 body{
   background-color: antiquewhite;
 }
@@ -69,10 +66,20 @@ body{
   flex-wrap: wrap;
 }
 .catPicture {
-  height: 300px;
-  width: 300px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  height: 350px;
+  width: 350px;
   margin: 10px;
   border: 1px solid gold;
+  padding: 5px;
+  background-color: #DDA0DD;
+  border-radius: 10%;
+  transition: .3s ease-in-out;
+}
+
+.catPicture:hover {
+  background-color: orange;
 }
 #button {
   background-color:#DDA0DD;
@@ -95,5 +102,8 @@ body{
 img {
   height:50px;
   width: 50px;
+}
+h3 {
+  color: #d910d9;
 }
 </style>
