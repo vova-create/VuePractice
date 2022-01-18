@@ -1,41 +1,56 @@
 <template>
   <div class="allWrapper">
+    <h2>Total cats are shown {{allCats.length}}</h2>
+    <div class="likeWrapperCounter">
+      <h2> Total Likes : {{likes}} </h2>
+    </div>
     <div class="wrapper">
       <div class="catItems" v-for="(item, index) in allCats" :key="index">
         <div class="catCart">
           <div class="heart">
-            <img v-show="item.likes" src="../assets/heart.png" alt="heart">
+            <img v-show="item.likes ? countLike(allCats) : item.likes " src="../assets/heart.png" alt="heart">
           </div>
           <h2 v-text="item.name"></h2>
           <img @click="item.likes = !item.likes" class="catPicture" :src="item.url" alt="cat">
           <h3>
             {{item.likes ? 'you liked this cat': 'not liked'}}
           </h3>
+          <div>
+            <img src={} alt="">
+          </div>
         </div>
       </div>
     </div>
     <button id="button" @click="this.showMoreCats">
       <img src="../assets/CatPaw.png" alt="cat-image-paw"></button>
     <br>
-    <label for="button">Еще котиков</label>
+    <label for="button">Еще котиков {{allCats.length}}</label>
   </div>
 </template>
 
 <script>
 import {mapGetters, mapActions} from 'vuex'
+
 export default {
   name: "CatList",
-  computed: mapGetters(['allCats','page']),
+  computed: mapGetters(['allCats', 'likes']),
   async mounted() {
    await this.getCats();
   },
   methods:{
-    ...mapActions(['getCats','showMoreCats'])
-  }
+    ...mapActions(['getCats','showMoreCats', "countLike"])
+  },
 }
+
 </script>
 <style scoped>
-
+.likeWrapperCounter{
+  height: 20px;
+}
+h2{
+  color: #103fd9;
+  opacity: 0.4;
+}
 .heart {
   position: relative;
   top: 90px;
@@ -59,11 +74,12 @@ body{
   background-color: whitesmoke;
   border: 1px solid wheat;
   max-width: 1800px;
-  margin: 0 auto;
+  margin: 100px auto;
 }
 .catItems {
   box-sizing: border-box;
   flex-wrap: wrap;
+  color: lightpink;
 }
 .catPicture {
   box-sizing: border-box;
@@ -73,7 +89,7 @@ body{
   margin: 10px;
   border: 1px solid gold;
   padding: 5px;
-  background-color: #DDA0DD;
+  background-color: #a17ca1;
   border-radius: 10%;
   transition: .3s ease-in-out;
 }
@@ -82,7 +98,7 @@ body{
   background-color: orange;
 }
 #button {
-  background-color:#DDA0DD;
+  background-color: #e3a4e3;
   border: none;
   color: white;
   padding: 10px 15px;
@@ -104,6 +120,6 @@ img {
   width: 50px;
 }
 h3 {
-  color: #d910d9;
+  color: #cb8fcb;
 }
 </style>

@@ -1,5 +1,4 @@
 import axios from "axios";
-
 export class  CatService {
     API_URL = 'https://api.thecatapi.com/v1';
 
@@ -7,6 +6,7 @@ export class  CatService {
         const url = this.buildUrl(this.API_URL, 'images', `search?limit=${limit}&page=${page}&order=${sort}`);
         return axios.get(url).then(res => res.data);
     }
+
     buildUrl(...chunks) {
         return chunks.join('/');
     }
