@@ -19,16 +19,18 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
 h1 {
   color: #DDA0DD;
-  font-family: 'Raleway',sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 72px;
   font-weight: 800;
   line-height: 72px;
-  margin: 30px 0px ;
+  margin: 30px 0px;
   text-transform: uppercase;
 }
-img{
+
+img {
   height: 140px;
   width: 140px;
   margin-left: 10px;

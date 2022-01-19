@@ -1,5 +1,6 @@
 import axios from "axios";
-export class  CatService {
+
+export class CatService {
     API_URL = 'https://api.thecatapi.com/v1';
 
     getImages(page = 1, limit = 4, sort = 'DESC') {
