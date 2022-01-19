@@ -1,7 +1,7 @@
 <template>
   <div class="downLoadForm">
     <h1>{{ selectedImage }}</h1>
-    <input type="file">
+    <input type="file" @change="(event) => this.selectedImage = event.target.files[0]">
     <button @click="upLoadImage">загрузить кота</button>
   </div>
 </template>
@@ -14,9 +14,9 @@ export default {
 
   computed: mapGetters(['selectedImage']),
   methods: {
-    selectFile(event) {
-      this.selectedImage = event.target.files[0]
-    },
+    // selectFile(event) {
+    //   this.selectedImage = event.target.files[0]
+    // },
     ...mapActions(['upLoadImage', 'selectFile'])
   },
 }

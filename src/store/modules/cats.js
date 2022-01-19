@@ -7,7 +7,6 @@ export default {
             let cats = await this.service.getImages();
             cats = cats.map((item) => ({...item, likes: false}));
             ctx.commit('showCats', cats)
-
         },
         async showMoreCats(ctx) {
             let cats = await this.service.getImages();
@@ -33,11 +32,9 @@ export default {
         deleteCats(state, cats) {
             state.cats = cats
         }
-
     },
     state: {
         cats: [],
-        service: null,
         likes: 0,
     },
     getters: {
