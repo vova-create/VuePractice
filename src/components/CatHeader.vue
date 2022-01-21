@@ -2,7 +2,7 @@
   <div>
     <header class="header">
       <h1>cat-instagram</h1>
-      <img src='../assets/BigCat.png' alt="cat-icon">
+      <img :src="require('@/assets/BigCat.png')" alt="cat-icon">
     </header>
   </div>
 </template>

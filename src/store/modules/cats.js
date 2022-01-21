@@ -15,8 +15,7 @@ export default {
             ctx.commit('upDateCats', cats)
         },
 
-        deleteCats(ctx) {
-            const cats = []
+        deleteCats(ctx, cats = []) {
             ctx.commit('deleteCats', cats)
         }
     },

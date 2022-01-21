@@ -2,8 +2,9 @@
   <div id="app">
     <div class="wrapper">
       <nav class="nav">
-        <router-link class="link" to="/">Главная Страница</router-link>
+        <router-link exact to="/my-page">Моя Страница</router-link>
         <router-link exact to="/cat-list">Лента котов</router-link>
+        <router-link class="link" to="/">Главная Страница</router-link>
         <router-link exact to="/download">Загрузить фото котика</router-link>
       </nav>
       <router-view/>

@@ -11,8 +11,11 @@
   "dependencies": {
     "axios": "^0.24.0",
     "core-js": "^3.6.5",
+    "sweetalert2": "^11.3.6",
     "vue": "^2.6.11",
+    "vue-image-upload-resize": "^2.3.0",
     "vue-router": "^3.5.3",
+    "vue-upload-multiple-image": "^1.1.6",
     "vuex": "^3.6.2"
   },
   "devDependencies": {

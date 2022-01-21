@@ -8,7 +8,7 @@
       <div class="catItems" v-for="(item, index) in allCats" :key="index">
         <div class="catCart">
           <div class="heart">
-            <img v-if="item.likes" src="../assets/heart.png" alt="heart">
+            <img v-if="item.likes" :src="require('@/assets/heart.png')" alt="heart">
           </div>
           <h2 v-text="item.name"></h2>
           <img @click="item.likes = !item.likes" class="catPicture" :src="item.url" alt="cat">
@@ -19,7 +19,7 @@
       </div>
     </div>
     <button id="button" @click="showMoreCats">
-      <img src="../assets/CatPaw.png" alt="cat-image-paw"></button>
+      <img :src="require('@/assets/CatPaw.png')" alt="cat-image-paw"></button>
     <br>
     <label for="button">Еще котиков {{ allCats.length }}</label>
   </div>
@@ -32,7 +32,7 @@ export default {
   name: "CatList",
   computed: mapGetters(['allCats', 'likes']),
   methods: {
-    ...mapActions(['getCats', 'showMoreCats', "countLike", 'deleteCats'])
+    ...mapActions(['getCats', 'showMoreCats', 'deleteCats'])
   },
   async mounted() {
     await this.getCats();
